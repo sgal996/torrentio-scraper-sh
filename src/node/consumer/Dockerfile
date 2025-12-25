@@ -1,4 +1,4 @@
-FROM node:lts-buster-slim as builder
+FROM node:lts-bullseye-slim as builder
 
 RUN apt-get update && \
     apt-get install -y git && \
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # --- Runtime Stage ---
-FROM node:lts-buster-slim
+FROM node:lts-bullseye-slim
 
 WORKDIR /app
 
